@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | AguaClara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="imagenes/logo.png">
+    <!-- Vinculación del archivo JavaScript externo mediante defer (sin código JS en el HTML) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <!-- ENCABEZADO STICKY CON MENÚ HAMBURGUESA, MENÚ HORIZONTAL Y SUBMENÚ DESPLEGABLE -->
+    <header class="cabecera">
+        <div class="contenedor barra">
+            <a class="marca" href="#inicio">
+                <img class="logo" src="imagenes/logo.png" alt="Logotipo de AguaClara" width="40" height="40">
+                AguaClara
+            </a>
+            <button id="boton-menu" class="boton-hamburguesa" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir o cerrar menú de navegación">
+                ☰ Menú
+            </button>
+            <nav id="navegacion-principal" aria-label="Navegación principal">
+                <ul id="menu-principal" class="menu">
+                    <li>
+                        <a href="#inicio">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#nosotros">Nosotros</a>
+                    </li>
+                    <li>
+                        <details class="desplegable">
+                            <summary>Servicios</summary>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#fugas">Reportar una fuga</a>
+                                </li>
+                                <li>
+                                    <a href="#cortes">Consultar cortes</a>
+                                </li>
+                                <li>
+                                    <a href="#ahorro">Consumo y ahorro</a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <a href="#proyectos">Propuestas</a>
+                    </li>
+                    <li>
+                        <a href="#galeria">Galería y video</a>
+                    </li>
+                    <li>
+                        <a href="#testimonios">Comunidad</a>
+                    </li>
+                    <li>
+                        <a href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="contenido">
+        <!-- PRESENTACIÓN (HERO) -->
+        <section id="inicio" class="hero seccion">
+            <div class="contenedor dos-columnas">
+                <div>
+                    <p class="etiqueta">ODS 6 · Agua limpia y saneamiento</p>
+                    <h1 id="titulo-inicio">Cuidar el agua empieza en tu comunidad.</h1>
+                    <p class="intro">Reporta una fuga, consulta el estado del servicio y descubre hábitos para reducir el desperdicio de agua.</p>
+                    <div class="acciones">
+                        <a class="boton" href="#fugas">Reportar una fuga</a>
+                        <a class="boton secundario" href="#servicios">Explorar servicios</a>
+                    </div>
+                    <p class="nota">Demostración académica con datos ficticios. No se envían reportes ni alertas.</p>
+                </div>
+                <figure>
+                    <img class="foto" src="imagenes/hero.jpg" alt="Comunidad accediendo a agua limpia" width="600" height="440">
+                    <figcaption>AguaClara · Una propuesta para el cuidado del agua.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- QUIÉNES SOMOS -->
+        <section id="nosotros" class="seccion">
+            <div class="contenedor dos-columnas">
+                <img class="foto" src="imagenes/nosotros.jpg" alt="Equipo de AguaClara en trabajo comunitario" width="450" height="330">
+                <div>
+                    <p class="etiqueta">Quiénes somos</p>
+                    <h2>Una comunidad informada cuida mejor el agua.</h2>
+                    <p>Somos una propuesta que promueve el acceso al agua limpia y al saneamiento en comunidades que más lo necesitan.</p>
+                    <h3>Nuestra misión</h3>
+                    <p>Facilitar información y recorridos sencillos para visibilizar fugas, consultar incidencias y fomentar el consumo responsable.</p>
+                    <h3>Nuestra visión</h3>
+                    <p>Comunidades que participan en el cuidado del agua y acceden a información clara sobre su servicio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS (RESUMEN DE LAS 3 ACCIONES) -->
+        <section id="servicios" class="seccion fondo">
+            <div class="contenedor">
+                <p class="etiqueta">Servicios · Elige una acción</p>
+                <h2>Tres formas de participar</h2>
+                <div class="tarjetas">
+                    <article class="tarjeta">
+                        <span class="numero">01</span>
+                        <h3>Reportar una fuga</h3>
+                        <p>Describe una pérdida de agua y prueba el recorrido de reporte.</p>
+                        <a href="#fugas">Iniciar reporte →</a>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="numero">02</span>
+                        <h3>Consultar cortes</h3>
+                        <p>Explora estados del servicio y horarios de ejemplo para planificarte.</p>
+                        <a href="#cortes">Ver consulta →</a>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="numero">03</span>
+                        <h3>Consumo y ahorro</h3>
+                        <p>Explora escenarios de consumo y consejos para tu hogar.</p>
+                        <a href="#ahorro">Revisar hábitos →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- HU01: REPORTE RÁPIDO DE FUGAS -->
+        <section id="fugas" class="seccion">
+            <div class="contenedor">
+                <p class="etiqueta">HU01 · Reporte rápido de fugas</p>
+                <h2>Haz visible una fuga de agua.</h2>
+                <p>Prueba el formulario con datos ficticios. La imagen se selecciona en tu dispositivo; no se almacena ni se transmite.</p>
+                <div class="dos-columnas">
+                    <form id="formulario-fugas" class="tarjeta formulario" action="#fugas" method="get" novalidate>
+                        <label for="foto">Una fotografía de la fuga</label>
+                        <input id="foto" type="file" accept="image/*" required>
+                        <p class="nota">Selecciona una imagen. En móviles compatibles, el selector puede ofrecer la cámara.</p>
+                        <div id="vista-previa-foto" class="vista-previa" hidden>
+                            <img id="imagen-previa-fuga" src="" alt="Vista previa de la fotografía seleccionada">
+                            <p id="nombre-archivo-fuga" class="nota"></p>
+                        </div>
+
+                        <fieldset>
+                            <legend>Ubicación de ejemplo</legend>
+                            <p class="nota">Selecciona un punto del croquis o usa el botón de ubicación simulada.</p>
+                            <div class="mapa">
+                                <label>
+                                    <input type="radio" name="punto_demo" value="A · Parque central (Av. Los Próceres 240)" checked> A · Parque
+                                </label>
+                                <label>
+                                    <input type="radio" name="punto_demo" value="B · Mercado vecinal (Jr. Las Magnolias 115)"> B · Mercado
+                                </label>
+                                <label>
+                                    <input type="radio" name="punto_demo" value="C · Colegio nacional (Av. Universitaria 890)"> C · Colegio
+                                </label>
+                            </div>
+                            <button id="boton-gps" class="boton secundario boton-pequeno" type="button">Usar ubicación seleccionada en dirección</button>
+                        </fieldset>
+
+                        <label for="direccion">Referencia o dirección ficticia</label>
+                        <input id="direccion" type="text" minlength="5" required placeholder="Ej.: frente al parque de la comunidad">
+                        <label for="descripcion">Breve descripción</label>
+                        <textarea id="descripcion" rows="4" minlength="15" required placeholder="Describe dónde está la fuga y qué observas."></textarea>
+                        <label for="correo-reporte">Correo de prueba</label>
+                        <input id="correo-reporte" type="email" required placeholder="persona@example.com">
+                        <button class="boton" type="submit">Generar ticket de reporte</button>
+                    </form>
+
+                    <aside class="panel">
+                        <h3>Así funciona el recorrido</h3>
+                        <ol>
+                            <li>Selecciona una fotografía.</li>
+                            <li>Marca una ubicación de ejemplo.</li>
+                            <li>Completa la descripción y el correo.</li>
+                            <li>Observa una confirmación con ticket único demostrativo.</li>
+                        </ol>
+                        <p class="aviso">El ticket se genera dinámicamente con JavaScript para fines académicos. No se notifica al municipio ni a la empresa de agua.</p>
+                        <div id="resultado-fuga" class="tarjeta-ticket" role="status" aria-live="polite" hidden></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- HU02: CORTES E INCIDENCIAS -->
+        <section id="cortes" class="seccion fondo">
+            <div class="contenedor">
+                <p class="etiqueta">HU02 · Cortes e incidencias</p>
+                <h2>Consulta un escenario de servicio.</h2>
+                <p>Busca por nombre de distrito (Centro, Norte, Sur) o por número de suministro (100001, 100002, 100003), o selecciona una opción rápida.</p>
+
+                <div class="tarjeta buscador-servicio">
+                    <label for="buscador-corte">Buscar por distrito o número de suministro</label>
+                    <div class="fila-buscador">
+                        <input id="buscador-corte" type="text" placeholder="Ej.: Norte, Sur, Centro o 100002">
+                        <button id="boton-buscar-corte" class="boton" type="button">Consultar</button>
+                    </div>
+                    <p id="mensaje-buscador-corte" class="nota" role="status" aria-live="polite"></p>
+                </div>
+
+                <fieldset class="orientador">
+                    <legend>Selecciona un distrito o suministro de prueba</legend>
+                    <input id="zona1" type="radio" name="zona" checked>
+                    <label for="zona1">Distrito Centro · 100001</label>
+                    <input id="zona2" type="radio" name="zona">
+                    <label for="zona2">Distrito Norte · 100002</label>
+                    <input id="zona3" type="radio" name="zona">
+                    <label for="zona3">Distrito Sur · 100003</label>
+                    <div class="resultados">
+                        <article class="respuesta zona1">
+                            <span class="estado estado-ok">Con servicio</span>
+                            <h3>Distrito Centro · suministro 100001</h3>
+                            <p>Sin interrupciones en el escenario mostrado. Restablecimiento: no aplica.</p>
+                        </article>
+                        <article class="respuesta zona2">
+                            <span class="estado estado-corte">Corte programado</span>
+                            <h3>Distrito Norte · suministro 100002</h3>
+                            <p>Mantenimiento preventivo de red: de 09:00 a 14:00. Restablecimiento estimado: 14:00 del día de prueba.</p>
+                        </article>
+                        <article class="respuesta zona3">
+                            <span class="estado estado-incidencia">Incidencia en reparación</span>
+                            <h3>Distrito Sur · suministro 100003</h3>
+                            <p>Reparación de tubería matriz. Restablecimiento estimado: 18:00 del día de prueba.</p>
+                        </article>
+                    </div>
+                </fieldset>
+
+                <details class="tarjeta alertas">
+                    <summary>Probar la opción de alertas por SMS o WhatsApp</summary>
+                    <form id="formulario-alertas" class="formulario" action="#cortes" method="get" novalidate>
+                        <label for="suministro-alerta">Suministro de ejemplo</label>
+                        <select id="suministro-alerta" required>
+                            <option value="">Selecciona</option>
+                            <option value="100001 · Distrito Centro">100001 · Centro</option>
+                            <option value="100002 · Distrito Norte">100002 · Norte</option>
+                            <option value="100003 · Distrito Sur">100003 · Sur</option>
+                        </select>
+                        <label for="canal">Canal de notificación</label>
+                        <select id="canal">
+                            <option value="SMS">SMS</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                        </select>
+                        <label for="telefono">Teléfono ficticio de 9 dígitos</label>
+                        <input id="telefono" type="tel" pattern="[0-9]{9}" maxlength="9" required placeholder="999999999">
+                        <button class="boton" type="submit">Activar alerta simulada</button>
+                        <p class="nota">No se envían mensajes reales. Validado mediante JavaScript y DOM.</p>
+                        <div id="resultado-alerta" class="aviso" role="status" aria-live="polite" hidden></div>
+                    </form>
+                </details>
+            </div>
+        </section>
+
+        <!-- HU03 + REQUERIMIENTO DE EQUIVALENCIAS VISUALES Y ESCENARIOS: CONSUMO Y AHORRO -->
+        <section id="ahorro" class="seccion">
+            <div class="contenedor">
+                <p class="etiqueta">HU03 · Calculadora interactiva y equivalencias visuales</p>
+                <h2>Explora tus hábitos de consumo y su magnitud real.</h2>
+                <p>Cambia cualquiera de las 4 respuestas para calcular dinámicamente tu consumo mensual estimado, ver su equivalencia con objetos cotidianos y recibir recomendaciones personalizadas.</p>
+                <div class="cuestionario tarjeta">
+                    <fieldset>
+                        <legend>1. ¿Cuántas personas viven en el hogar?</legend>
+                        <label for="personas">Personas en casa</label>
+                        <select id="personas">
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4" selected>4 personas</option>
+                            <option value="5">5 o más personas</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <legend>2. ¿Cuántas cargas de lavadora hacen por semana?</legend>
+                        <label for="lavadora">Cargas por semana</label>
+                        <select id="lavadora">
+                            <option value="baja">0 a 2 cargas por semana</option>
+                            <option value="media" selected>3 a 4 cargas por semana</option>
+                            <option value="alta">5 o más cargas por semana</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <legend>3. ¿Cómo riegan las plantas o áreas exteriores?</legend>
+                        <label for="riego">Método de riego</label>
+                        <select id="riego">
+                            <option value="ninguno">No regamos</option>
+                            <option value="regadera" selected>Con regadera o balde</option>
+                            <option value="manguera">Con manguera abierta</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="orientador">
+                        <legend>4. ¿Cuánto dura una ducha habitual?</legend>
+                        <input type="radio" id="bajo" name="ducha" value="bajo" checked>
+                        <label for="bajo">Hasta 5 minutos</label>
+                        <input type="radio" id="medio" name="ducha" value="medio">
+                        <label for="medio">De 6 a 10 minutos</label>
+                        <input type="radio" id="alto" name="ducha" value="alto">
+                        <label for="alto">Más de 10 minutos</label>
+
+                        <!-- PANEL DE RESULTADOS DINÁMICOS Y EQUIVALENCIAS VISUALES (MANIPULADO POR DOM EN main.js) -->
+                        <div id="panel-resultado-ahorro" class="resultados">
+                            <article class="respuesta-dinamica">
+                                <div class="cabecera-resultado">
+                                    <div>
+                                        <h3 id="titulo-perfil-consumo">Perfil de consumo eficiente</h3>
+                                        <p class="cifra">
+                                            <span id="litros-totales">9 600</span> L/mes
+                                            <small id="subtitulo-hogar">para un hogar de 4 personas (referencia OMS: 12 000 L/mes)</small>
+                                        </p>
+                                    </div>
+                                    <div class="contenedor-tooltip">
+                                        <button id="boton-tooltip" class="boton-interrogacion" type="button" aria-expanded="false" aria-controls="contenido-tooltip" title="¿Cómo se calculó esta equivalencia?">
+                                            ?
+                                        </button>
+                                        <span class="etiqueta-tooltip">¿Cómo se calculó?</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tooltip explicativo ("?") requerido en los criterios de aceptación -->
+                                <div id="contenido-tooltip" class="caja-tooltip" role="region" aria-label="Explicación del cálculo de equivalencias" hidden>
+                                    <strong>¿Cómo calculamos tu consumo y sus equivalencias?</strong>
+                                    <p id="texto-formula-tooltip">
+                                        Sumamos el consumo mensual por persona en ducha (según duración), las cargas semanales de lavadora (70 L por carga) y el método de riego mensual. Luego dividimos el total entre objetos cotidianos reales: 1 bañera estándar = 150 L, 1 bidón familiar = 20 L y 1 piscina familiar = 25 000 L.
+                                    </p>
+                                </div>
+
+                                <label id="etiqueta-medidor" for="medidor-consumo">Comparación con referencia recomendada por la OMS: 80%</label>
+                                <meter id="medidor-consumo" min="0" max="200" low="100" high="130" optimum="80" value="80">80%</meter>
+
+                                <!-- Alerta visual dinámica: Escenario 1 (Rojo - Excesivo) o Escenario 2 (Verde - Eficiente) -->
+                                <div id="alerta-escenario" class="alerta-consumo alerta-verde" role="status" aria-live="polite">
+                                    <strong id="titulo-escenario">¡Felicitaciones por tu eficiencia hídrica!</strong>
+                                    <p id="descripcion-escenario">Tu consumo está por debajo del promedio recomendado. Tus hábitos de ducha corta y riego controlado cuidan el agua de tu comunidad.</p>
+                                </div>
+
+                                <!-- Gráfico comparativo con objetos cotidianos (bañeras, bidones/botellas y piscinas) -->
+                                <h4>Equivalencia visual con objetos cotidianos</h4>
+                                <div id="grafico-equivalencias" class="grid-equivalencias">
+                                    <div class="tarjeta-equivalencia">
+                                        <span class="icono-equivalencia" aria-hidden="true">🛁</span>
+                                        <strong id="eq-baneras" class="valor-equivalencia">64 bañeras</strong>
+                                        <span class="detalle-equivalencia">de 150 litros cada una al mes</span>
+                                        <div id="visual-baneras" class="barra-objetos" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="tarjeta-equivalencia">
+                                        <span class="icono-equivalencia" aria-hidden="true">🧴</span>
+                                        <strong id="eq-botellas" class="valor-equivalencia">480 bidones</strong>
+                                        <span class="detalle-equivalencia">de agua de 20 litros cada uno</span>
+                                        <div id="visual-botellas" class="barra-objetos" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="tarjeta-equivalencia">
+                                        <span class="icono-equivalencia" aria-hidden="true">🏊</span>
+                                        <strong id="eq-piscinas" class="valor-equivalencia">0.38 piscinas</strong>
+                                        <span class="detalle-equivalencia">equivale al 38% de una piscina de 25 000 L</span>
+                                        <div class="barra-piscina-fondo" aria-hidden="true">
+                                            <div id="barra-piscina-relleno" class="barra-piscina-relleno" style="width: 38%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>Tres consejos personalizados según tus respuestas</h4>
+                                <ul id="lista-consejos" class="lista-consejos">
+                                    <li>Mantén las duchas breves de hasta 5 minutos y cierra la llave al enjabonarte.</li>
+                                    <li>Agrupa las prendas para utilizar la lavadora siempre con carga completa.</li>
+                                    <li>Continúa regando con regadera o recipiente en horarios de poca evaporación.</li>
+                                </ul>
+                            </article>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROPUESTAS / PROYECTOS -->
+        <section id="proyectos" class="seccion fondo">
+            <div class="contenedor">
+                <p class="etiqueta">Propuestas · ODS 6</p>
+                <h2>Iniciativas de AguaClara</h2>
+                <p>Estas iniciativas describen la propuesta académica; no se presentan como obras ejecutadas.</p>
+                <div class="tarjetas">
+                    <article class="tarjeta">
+                        <h3>Comunidad sin fugas</h3>
+                        <p>Facilitar que los vecinos describan y ubiquen pérdidas de agua en la vía pública.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <h3>Vecinos informados</h3>
+                        <p>Reunir información comprensible sobre interrupciones y restablecimiento del servicio.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <h3>Hogares que ahorran</h3>
+                        <p>Promover hábitos cotidianos de cuidado y consumo responsable del agua.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERÍA Y VIDEO -->
+        <section id="galeria" class="seccion">
+            <div class="contenedor">
+                <p class="etiqueta">Recursos visuales · ODS 6</p>
+                <h2>Galería del proyecto</h2>
+                <div class="galeria">
+                    <img class="foto" src="imagenes/galeria1.jpg" alt="Revisión de grifos e instalaciones domésticas de agua" width="300" height="230">
+                    <img class="foto" src="imagenes/galeria2.jpg" alt="Acceso a agua potable limpia y segura en la comunidad" width="300" height="230">
+                    <img class="foto" src="imagenes/galeria3.jpg" alt="Calidad del agua potable lista para el consumo humano" width="300" height="230">
+                </div>
+                <div class="dos-columnas bloque-video">
+                    <div>
+                        <iframe
+                            class="video"
+                            src="https://www.youtube.com/embed/gQBJfYlDOvA"
+                            title="Objetivos de Desarrollo Sostenible - UNESCO"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <p class="nota">Video educativo de UNESCO en español sobre los Objetivos de Desarrollo Sostenible. <a href="https://www.youtube.com/watch?v=gQBJfYlDOvA" target="_blank" rel="noopener noreferrer">Abrir en YouTube</a> si no se reproduce aquí.</p>
+                    </div>
+                    <div>
+                        <h3>El agua limpia como compromiso compartido</h3>
+                        <p>El Objetivo de Desarrollo Sostenible 6 busca garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos. A través de AguaClara planteamos herramientas ciudadanas simples para reportar fugas, informarse sobre cortes y mejorar los hábitos de consumo en casa.</p>
+                        <video class="video-local" controls width="500">
+                            <source src="videos/video.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VOCES DE LA COMUNIDAD (TESTIMONIOS) -->
+        <section id="testimonios" class="seccion fondo">
+            <div class="contenedor">
+                <p class="etiqueta">Testimonios</p>
+                <h2>Voces de la comunidad</h2>
+                <p>Testimonios ficticios para ilustrar necesidades del proyecto.</p>
+                <div class="tarjetas">
+                    <blockquote class="tarjeta">
+                        <p>«Quiero reportar una fuga sin hacer un trámite largo».</p>
+                        <footer>Persona ficticia · Reportes</footer>
+                    </blockquote>
+                    <blockquote class="tarjeta">
+                        <p>«Necesito saber cuándo volverá el agua para organizarme».</p>
+                        <footer>Persona ficticia · Incidencias</footer>
+                    </blockquote>
+                    <blockquote class="tarjeta">
+                        <p>«Quiero identificar hábitos con los que puedo ahorrar».</p>
+                        <footer>Persona ficticia · Consumo</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTÁCTANOS -->
+        <section id="contacto" class="seccion">
+            <div class="contenedor dos-columnas">
+                <div>
+                    <p class="etiqueta">Contáctanos</p>
+                    <h2>Comparte una idea para cuidar el agua.</h2>
+                    <p>Este canal es una demostración académica. Usa información ficticia.</p>
+                    <p>Correo de ejemplo: contacto@aguaclara.example</p>
+                    <p>Ubicación del proyecto: Perú</p>
+                </div>
+                <form id="formulario-contacto" class="tarjeta formulario" action="#contacto" method="get" novalidate>
+                    <label for="nombre">Nombre ficticio</label>
+                    <input id="nombre" type="text" required placeholder="Ej.: Valeria Quispe">
+                    <label for="correo">Correo de prueba</label>
+                    <input id="correo" type="email" required placeholder="valeria@example.com">
+                    <label for="mensaje">Mensaje (mínimo 15 caracteres)</label>
+                    <textarea id="mensaje" rows="4" minlength="15" required placeholder="Escribe tu propuesta o comentario sobre el cuidado del agua..."></textarea>
+                    <button class="boton" type="submit">Enviar idea</button>
+                    <div id="resultado-contacto" class="aviso" role="status" aria-live="polite" hidden></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie">
+        <div class="contenedor">
+            <a class="marca" href="#inicio">
+                <img class="logo" src="imagenes/logo.png" alt="" width="34" height="34">
+                AguaClara
+            </a>
+            <p>Agua limpia y segura para todos · ODS 6</p>
+            <p>Prototipo académico. No representa un servicio de emergencias ni una empresa de agua.</p>
+            <nav class="redes" aria-label="Redes sociales de referencia">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <img src="iconos/facebook.svg" alt="" width="26" height="26">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <img src="iconos/instagram.svg" alt="" width="26" height="26">
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <img src="iconos/youtube.svg" alt="" width="26" height="26">
+                </a>
+            </nav>
+            <p>© 2026 AguaClara · Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

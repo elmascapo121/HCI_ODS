@@ -1,0 +1,1101 @@
+/*
+ * PASO 1: CONFIGURACIÓN GLOBAL (:root), RESETEO DE BRAVE Y VARIABLES DEL ODS 6
+ * En ":root" se declara "color-scheme: only light" para impedir que el navegador Brave
+ * invierta o oscurezca automáticamente los colores de la página. Además, se definen las
+ * variables con la paleta oficial de las Naciones Unidas para el ODS 6 (celeste #00adef,
+ * azul institucional #02558b, fondos #ffffff y #f6f6f6) y las fuentes "Roboto Condensed"
+ * para títulos y "Roboto" para el cuerpo de texto.
+ */
+:root {
+    color-scheme: only light;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+    --tinta: #333333;
+    --texto-suave: #4d4d4d;
+    --marca: #02558b;
+    --ods6: #00adef;
+    --acento: #dff4fc;
+    --fondo: #f6f6f6;
+    --superficie: #ffffff;
+    --borde: #dcdcdc;
+    --verde-eficiente: #15803d;
+    --fondo-verde: #ecfdf5;
+    --borde-verde: #86efac;
+    --rojo-excesivo: #b91c1c;
+    --fondo-rojo: #fef2f2;
+    --borde-rojo: #fca5a5;
+    --fuente-titulos: "Roboto Condensed", "Roboto", Arial, sans-serif;
+    --fuente-cuerpo: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--superficie);
+    color: var(--tinta);
+}
+
+body {
+    margin: 0;
+    color: var(--tinta);
+    background-color: var(--superficie);
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--marca);
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: var(--ods6);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--ods6);
+    outline-offset: 3px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+figure,
+blockquote {
+    margin: 0;
+}
+
+figcaption,
+.nota {
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+    margin-top: 0.45rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    color: var(--marca);
+}
+
+#titulo-inicio,
+h1 {
+    font-size: clamp(2rem, 4.4vw, 3.4rem);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.65rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+.contenedor {
+    width: 92%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 4.5rem 0;
+}
+
+.fondo {
+    background-color: var(--fondo);
+}
+
+.etiqueta {
+    font-family: var(--fuente-titulos);
+    color: var(--ods6);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.intro {
+    font-size: 1.15rem;
+    color: var(--texto-suave);
+}
+
+/*
+ * PASO 2: ENCABEZADO FIJO (.cabecera), MENÚ HAMBURGUESA (#boton-menu) Y SUBMENÚ (.desplegable)
+ * El encabezado permanece visible en la parte superior con "position: sticky".
+ * En escritorio muestra el menú horizontal (.menu) y oculta el botón hamburguesa (#boton-menu).
+ * En pantallas móviles, el botón hamburguesa alterna la clase ".abierto" mediante JavaScript.
+ */
+.cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--superficie);
+    border-top: 4px solid var(--ods6);
+    border-bottom: 1px solid var(--borde);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0.85rem 0;
+}
+
+.marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--marca);
+}
+
+.logo {
+    border-radius: 50%;
+    border: 2px solid var(--ods6);
+    object-fit: cover;
+}
+
+.boton-hamburguesa {
+    display: none;
+    background-color: var(--superficie);
+    color: var(--marca);
+    border: 2px solid var(--marca);
+    border-radius: 4px;
+    padding: 0.45rem 0.8rem;
+    font-family: var(--fuente-titulos);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+.boton-hamburguesa:hover {
+    background-color: var(--ods6);
+    border-color: var(--ods6);
+    color: #ffffff;
+}
+
+.menu,
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    align-items: center;
+}
+
+.menu a,
+.menu summary {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    text-decoration: none;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.94rem;
+    color: var(--tinta);
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu summary::after {
+    content: " ▾";
+}
+
+.menu a:hover,
+.menu summary:hover {
+    background-color: var(--ods6);
+    color: #ffffff;
+}
+
+.desplegable {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 230px;
+    max-width: 85vw;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 0.4rem;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-top: 3px solid var(--ods6);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+}
+
+#inicio,
+#nosotros,
+#servicios,
+#fugas,
+#cortes,
+#ahorro,
+#proyectos,
+#galeria,
+#testimonios,
+#contacto,
+#contenido {
+    scroll-margin-top: 130px;
+}
+
+.saltar {
+    position: fixed;
+    top: -100px;
+    left: 1rem;
+    background-color: var(--superficie);
+    color: var(--marca);
+    font-weight: 700;
+    padding: 0.85rem 1.1rem;
+    border: 2px solid var(--ods6);
+    z-index: 200;
+}
+
+.saltar:focus {
+    top: 1rem;
+}
+
+/*
+ * PASO 3: PORTADA (#inicio.hero), COLUMNAS (.dos-columnas), IMÁGENES (.foto) Y TARJETAS (.tarjetas)
+ * ".dos-columnas" divide el espacio en 2 columnas iguales mediante CSS Grid e incluye "min-width: 0"
+ * en sus hijos para impedir que formularios o imágenes desborden el ancho en pantallas pequeñas.
+ */
+#inicio.hero {
+    background-color: var(--fondo);
+    border-bottom: 1px solid var(--borde);
+}
+
+.dos-columnas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+    align-items: start;
+}
+
+.hero .dos-columnas,
+#nosotros .dos-columnas {
+    align-items: center;
+}
+
+.dos-columnas > * {
+    min-width: 0;
+}
+
+.foto {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #e6f4fb;
+    border: 1px solid var(--borde);
+    border-bottom: 3px solid var(--ods6);
+}
+
+.hero .foto {
+    height: 400px;
+}
+
+.tarjetas,
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.tarjeta,
+.panel {
+    min-width: 0;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-top: 4px solid var(--ods6);
+    padding: 1.7rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.panel {
+    background-color: var(--fondo);
+    border-top-color: var(--marca);
+}
+
+.numero {
+    display: block;
+    color: var(--ods6);
+    font-size: 2.1rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.boton {
+    display: inline-block;
+    border: 2px solid var(--ods6);
+    background-color: var(--ods6);
+    color: #ffffff;
+    padding: 0.75rem 1.35rem;
+    min-height: 44px;
+    border-radius: 4px;
+    font-family: var(--fuente-titulos);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.boton:hover {
+    background-color: var(--marca);
+    border-color: var(--marca);
+    color: #ffffff;
+}
+
+.secundario {
+    color: var(--marca);
+    background-color: transparent;
+    border-color: var(--marca);
+}
+
+.secundario:hover {
+    background-color: var(--marca);
+    color: #ffffff;
+}
+
+.boton-pequeno {
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.88rem;
+    width: 100%;
+}
+
+/*
+ * PASO 4: FORMULARIOS, CROQUIS (.mapa), VISTA PREVIA DE FOTO Y TICKET (HU01 y Contacto)
+ * Estiliza el selector de archivos (#foto), su vista previa dinámica (#vista-previa-foto),
+ * el croquis de ubicaciones (.mapa) y la tarjeta de ticket generado (#resultado-fuga).
+ */
+.formulario {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.formulario label,
+legend {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--marca);
+}
+
+#foto,
+#direccion,
+#descripcion,
+#correo-reporte,
+#buscador-corte,
+#suministro-alerta,
+#canal,
+#telefono,
+#personas,
+#lavadora,
+#riego,
+#nombre,
+#correo,
+#mensaje,
+input:not([type="radio"]),
+select,
+textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #b8c4cc;
+    background-color: var(--superficie);
+    color: var(--tinta);
+    border-radius: 4px;
+    font: inherit;
+}
+
+.campo-error {
+    border-color: var(--rojo-excesivo) !important;
+    background-color: var(--fondo-rojo) !important;
+}
+
+#foto {
+    font-size: 0.92rem;
+    padding: 0.6rem;
+    background-color: #f4fafe;
+    border: 2px dashed var(--ods6);
+    border-radius: 6px;
+    color: var(--texto-suave);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#foto:hover {
+    background-color: var(--acento);
+    border-color: var(--marca);
+}
+
+#foto::file-selector-button {
+    font-family: var(--fuente-titulos);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    background-color: var(--ods6);
+    border: 0;
+    border-radius: 4px;
+    padding: 0.55rem 1rem;
+    margin-right: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#foto::file-selector-button:hover {
+    background-color: var(--marca);
+}
+
+.vista-previa {
+    background-color: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 0.75rem;
+}
+
+.vista-previa img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+fieldset {
+    min-width: 0;
+    border: 1px solid var(--borde);
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 0 0 1rem;
+}
+
+legend {
+    padding: 0 0.4rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.mapa {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding: 1.1rem;
+    margin-top: 0.5rem;
+    background-color: #f4f9fc;
+    background-image:
+        linear-gradient(to right, rgba(2, 85, 139, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(2, 85, 139, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+}
+
+.mapa label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+    background-color: var(--superficie);
+    padding: 0.7rem 0.85rem;
+    border: 1.5px solid var(--borde);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mapa label:hover {
+    border-color: var(--ods6);
+}
+
+.mapa input[type="radio"] {
+    accent-color: var(--marca);
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.mapa label:has(input:checked) {
+    background-color: var(--acento);
+    border-color: var(--ods6);
+    box-shadow: 0 2px 6px rgba(0, 173, 239, 0.16);
+}
+
+.aviso {
+    border-left: 4px solid var(--ods6);
+    padding: 1rem;
+    background-color: var(--acento);
+    color: var(--tinta);
+    border-radius: 4px;
+}
+
+.tarjeta-ticket {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    background-color: var(--fondo-verde);
+    border: 1.5px solid var(--borde-verde);
+    border-left: 5px solid var(--verde-eficiente);
+    border-radius: 6px;
+}
+
+.codigo-ticket {
+    display: inline-block;
+    font-family: var(--fuente-titulos);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--marca);
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    padding: 0.35rem 0.8rem;
+    border-radius: 4px;
+    margin: 0.4rem 0 0.75rem;
+}
+
+/*
+ * PASO 5: BUSCADOR DE CORTES (HU02), CALCULADORA Y EQUIVALENCIAS VISUALES CON TOOLTIP (HU03)
+ * Incluye los estilos para el buscador de suministros (.buscador-servicio), el botón de tooltip "?"
+ * (#boton-tooltip), la alerta dinámica de escenarios (.alerta-verde para consumo eficiente y
+ * .alerta-roja para consumo excesivo) y el gráfico comparativo con objetos cotidianos (.grid-equivalencias).
+ */
+.buscador-servicio {
+    margin-bottom: 1.25rem;
+}
+
+.fila-buscador {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.45rem;
+}
+
+.orientador {
+    padding: 1.5rem;
+    background-color: var(--superficie);
+    border-top: 4px solid var(--ods6);
+}
+
+.orientador > input {
+    accent-color: var(--marca);
+    margin: 0.7rem 0.3rem 0.7rem 0;
+}
+
+.orientador > label {
+    display: inline-block;
+    margin: 0 1rem 0.3rem 0;
+    cursor: pointer;
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+}
+
+.orientador > input:checked + label {
+    background-color: var(--acento);
+    color: var(--marca);
+    font-weight: 700;
+}
+
+.resultados {
+    margin-top: 1rem;
+}
+
+.respuesta {
+    display: none;
+    padding: 1.35rem;
+    background-color: var(--fondo);
+    border-left: 4px solid var(--ods6);
+    border-radius: 4px;
+}
+
+.respuesta-dinamica {
+    display: block;
+    padding: 1.5rem;
+    background-color: var(--fondo);
+    border-left: 4px solid var(--ods6);
+    border-radius: 6px;
+}
+
+#zona1:checked ~ .resultados .zona1,
+#zona2:checked ~ .resultados .zona2,
+#zona3:checked ~ .resultados .zona3 {
+    display: block;
+}
+
+.estado {
+    display: inline-block;
+    margin-bottom: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--marca);
+    color: #ffffff;
+    border-radius: 4px;
+    font-family: var(--fuente-titulos);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.estado-ok {
+    background-color: var(--verde-eficiente);
+}
+
+.estado-corte {
+    background-color: #b45309;
+}
+
+.estado-incidencia {
+    background-color: var(--rojo-excesivo);
+}
+
+.alertas {
+    margin-top: 1rem;
+}
+
+.alertas summary {
+    cursor: pointer;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--marca);
+}
+
+.alertas[open] summary {
+    margin-bottom: 1rem;
+}
+
+.cuestionario {
+    max-width: 920px;
+}
+
+.cabecera-resultado {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cifra {
+    font-family: var(--fuente-titulos);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--marca);
+    margin-bottom: 0.5rem;
+}
+
+.cifra small {
+    display: block;
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--texto-suave);
+}
+
+.contenedor-tooltip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.boton-interrogacion {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid var(--marca);
+    background-color: var(--superficie);
+    color: var(--marca);
+    font-family: var(--fuente-titulos);
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-interrogacion:hover,
+.boton-interrogacion[aria-expanded="true"] {
+    background-color: var(--ods6);
+    border-color: var(--ods6);
+    color: #ffffff;
+}
+
+.etiqueta-tooltip {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--marca);
+}
+
+.caja-tooltip {
+    background-color: var(--superficie);
+    border: 1.5px solid var(--ods6);
+    border-left: 5px solid var(--marca);
+    border-radius: 6px;
+    padding: 1rem 1.15rem;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.92rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.caja-tooltip p {
+    margin: 0.35rem 0 0;
+}
+
+meter {
+    display: block;
+    width: 100%;
+    height: 26px;
+    margin: 0.5rem 0 1rem;
+    accent-color: var(--ods6);
+}
+
+.alerta-consumo {
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    border: 1.5px solid transparent;
+}
+
+.alerta-consumo p {
+    margin: 0.3rem 0 0;
+}
+
+.alerta-verde {
+    background-color: var(--fondo-verde);
+    border-color: var(--borde-verde);
+    border-left: 5px solid var(--verde-eficiente);
+    color: #14532d;
+}
+
+.alerta-roja {
+    background-color: var(--fondo-rojo);
+    border-color: var(--borde-rojo);
+    border-left: 5px solid var(--rojo-excesivo);
+    color: #7f1d1d;
+}
+
+.grid-equivalencias {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0.75rem 0 1.25rem;
+}
+
+.tarjeta-equivalencia {
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-top: 3px solid var(--ods6);
+    border-radius: 6px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.icono-equivalencia {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.valor-equivalencia {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    color: var(--marca);
+}
+
+.detalle-equivalencia {
+    font-size: 0.84rem;
+    color: var(--texto-suave);
+}
+
+.barra-objetos {
+    margin-top: 0.45rem;
+    font-size: 1rem;
+    line-height: 1.35;
+    letter-spacing: 0.1em;
+    word-break: break-all;
+}
+
+.barra-piscina-fondo {
+    margin-top: 0.55rem;
+    width: 100%;
+    height: 14px;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.barra-piscina-relleno {
+    height: 100%;
+    background-color: var(--ods6);
+    border-radius: 999px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.lista-consejos {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 0;
+}
+
+.lista-consejos li {
+    margin-bottom: 0.4rem;
+}
+
+.bloque-video {
+    margin-top: 2rem;
+}
+
+.video,
+.video-local {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    background-color: #111111;
+    display: block;
+}
+
+/*
+ * PASO 6: PIE DE PÁGINA (.pie) Y REDES SOCIALES (.redes)
+ * Cierra el sitio con el azul institucional de la ONU (--marca: #02558b) y una franja superior
+ * en celeste ODS 6 (--ods6: #00adef), presentando los iconos locales SVG de redes sociales.
+ */
+.pie {
+    padding: 3rem 0;
+    background-color: var(--marca);
+    border-top: 5px solid var(--ods6);
+    color: #ffffff;
+}
+
+.pie a {
+    color: #ffffff;
+}
+
+.redes {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.redes a {
+    display: inline-flex;
+    padding: 0.45rem;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.redes a:hover {
+    background-color: var(--ods6);
+}
+
+/*
+ * PASO 7: DISEÑO RESPONSIVE PARA TABLET (900PX) Y CELULAR (600PX)
+ * Adapta la misma página al ancho disponible sin generar desplazamiento horizontal.
+ * En celular (hasta 600px), muestra el botón hamburguesa (#boton-menu) y despliega el menú
+ * cuando tiene la clase ".abierto" controlada desde js/main.js.
+ */
+@media (max-width: 900px) {
+    .barra {
+        gap: 0.4rem;
+    }
+
+    .tarjetas,
+    .grid-equivalencias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dos-columnas {
+        gap: 1.5rem;
+    }
+
+    .hero .foto {
+        height: 340px;
+    }
+
+    #titulo-inicio,
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .seccion {
+        padding: 2.5rem 0;
+    }
+
+    .barra {
+        padding: 0.6rem 0;
+    }
+
+    .marca {
+        font-size: 1.3rem;
+    }
+
+    .boton-hamburguesa {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #navegacion-principal {
+        width: 100%;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--borde);
+    }
+
+    .menu.abierto {
+        display: flex;
+    }
+
+    .menu a,
+    .menu summary {
+        padding: 0.55rem 0.65rem;
+        font-size: 0.9rem;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        margin-top: 0.25rem;
+    }
+
+    .dos-columnas,
+    .tarjetas,
+    .galeria,
+    .mapa,
+    .grid-equivalencias {
+        grid-template-columns: 1fr;
+    }
+
+    .fila-buscador {
+        flex-direction: column;
+    }
+
+    .foto,
+    .hero .foto {
+        height: 250px;
+    }
+
+    #titulo-inicio,
+    h1 {
+        font-size: 2rem;
+    }
+
+    .tarjeta,
+    .panel,
+    .orientador {
+        padding: 1.1rem;
+    }
+
+    #inicio,
+    #nosotros,
+    #servicios,
+    #fugas,
+    #cortes,
+    #ahorro,
+    #proyectos,
+    #galeria,
+    #testimonios,
+    #contacto,
+    #contenido {
+        scroll-margin-top: 190px;
+    }
+
+    .cifra {
+        font-size: 1.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
